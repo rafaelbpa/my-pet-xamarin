@@ -18,17 +18,23 @@ namespace MyPet.Views.Pages
             ScrollView scroll = new ScrollView();
             StackLayout listPetsLayout = new StackLayout();
 
-            PetServices service = new PetServices();
-            ObservableCollection<pet> pets = Task.Run(() => service.GetPetsAsync()).Result;
-
-            PetBoxView petBoxView = new PetBoxView();
-
-			foreach(pet peto in pets) {
-			    listPetsLayout.Children.Add(petBoxView.createPetBoxLayout(peto));
-			}
+			FillPets(listPetsLayout);
 
             scroll.Content = listPetsLayout;
             Content = scroll;
+        }
+
+        protected async void FillPets(StackLayout listPetsLayout)
+        {
+            PetServices service = new PetServices();
+			PetBoxView petBoxView = new PetBoxView();
+
+            ObservableCollection<pet> pets = await service.GetPetsAsync();
+
+            foreach (pet mypet in pets)
+			{
+				listPetsLayout.Children.Add(petBoxView.createPetBoxLayout(mypet));
+			}
         }
     }
 }
