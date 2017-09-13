@@ -10,16 +10,25 @@ namespace MyPet.Views.Pages
 {
     public class ListPage : ContentPage
     {
+        ActivityIndicator loading;
+
 		public ListPage()
         {
             Title = "My Pets";
             BackgroundColor = Color.LightGray;
+
+            loading = new ActivityIndicator();
+            loading.IsRunning = true;
+            loading.IsVisible = true;
+            loading.HorizontalOptions = LayoutOptions.FillAndExpand;
+            loading.VerticalOptions = LayoutOptions.FillAndExpand;
 
             ScrollView scroll = new ScrollView();
             StackLayout listPetsLayout = new StackLayout();
 
 			FillPets(listPetsLayout);
 
+            listPetsLayout.Children.Add(loading);
             scroll.Content = listPetsLayout;
             Content = scroll;
         }
@@ -35,6 +44,9 @@ namespace MyPet.Views.Pages
 			{
 				listPetsLayout.Children.Add(petBoxView.createPetBoxLayout(mypet));
 			}
+
+            loading.IsRunning = false;
+            loading.IsVisible = false;
         }
     }
 }
