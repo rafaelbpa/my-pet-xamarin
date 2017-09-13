@@ -33,7 +33,6 @@
     <Compile Include="Models\pet.cs" />
     <Compile Include="Services\AzureDataServices.cs" />
     <Compile Include="Util\Constants.cs" />
-    <Compile Include="Controllers\PetsController.cs" />
     <Compile Include="Services\PetServices.cs" />
     <Compile Include="Views\Pages\ListPage.cs" />
     <Compile Include="Views\Templates\PetBoxView.cs" />
@@ -100,8 +99,6 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Models\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Services\" />
     <Folder Include="Util\" />
     <Folder Include="Views\Pages\" />
