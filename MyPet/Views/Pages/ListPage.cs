@@ -20,8 +20,8 @@ namespace MyPet.Views.Pages
             loading = new ActivityIndicator();
             loading.IsRunning = true;
             loading.IsVisible = true;
-            loading.HorizontalOptions = LayoutOptions.FillAndExpand;
-            loading.VerticalOptions = LayoutOptions.FillAndExpand;
+            loading.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            loading.VerticalOptions = LayoutOptions.CenterAndExpand;
 
             ScrollView scroll = new ScrollView();
             StackLayout listPetsLayout = new StackLayout();
