@@ -16,18 +16,18 @@ namespace MyPet.Views.Pages
             StackLayout layout = new StackLayout();
             layout.BackgroundColor = Color.White;
 
-			var cachedImage = new CachedImage()
-			{
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
-				VerticalOptions = LayoutOptions.Start,
-				CacheDuration = TimeSpan.FromDays(7),
-				DownsampleToViewSize = true,
-				RetryCount = 0,
-				RetryDelay = 250,
-				LoadingPlaceholder = "loading.png",
-				ErrorPlaceholder = "error.png",
+	    var cachedImage = new CachedImage()
+	    {
+		HorizontalOptions = LayoutOptions.CenterAndExpand,
+		VerticalOptions = LayoutOptions.Start,
+		CacheDuration = TimeSpan.FromDays(7),
+		DownsampleToViewSize = true,
+		RetryCount = 0,
+		RetryDelay = 250,
+		LoadingPlaceholder = "loading.png",
+		ErrorPlaceholder = "error.png",
                 Source = myPet.picture
-			};
+	    };
 
             Button btnRoute = new Button()
             {
@@ -38,14 +38,14 @@ namespace MyPet.Views.Pages
                 FontSize = 18.0f,
                 Margin = new Thickness(10, 10),
                 Command = new Command(async () => await openMapsAsync(myPet)),
-			};
+	    };
 
             StackLayout nameStack = VerticalStackEditorView.createVerticalStackEditorView("Name", myPet.name);
-			StackLayout breedStack = VerticalStackEditorView.createVerticalStackEditorView("Breed", myPet.breed);
-			StackLayout weightStack = VerticalStackEditorView.createVerticalStackEditorView("Weight", myPet.weight.ToString());
-			StackLayout descriptionStack = VerticalStackEditorView.createVerticalStackEditorView("Description", myPet.description);
+	    StackLayout breedStack = VerticalStackEditorView.createVerticalStackEditorView("Breed", myPet.breed);
+	    StackLayout weightStack = VerticalStackEditorView.createVerticalStackEditorView("Weight", myPet.weight.ToString());
+	    StackLayout descriptionStack = VerticalStackEditorView.createVerticalStackEditorView("Description", myPet.description);
 
-			layout.Children.Add(cachedImage);
+	    layout.Children.Add(cachedImage);
             layout.Children.Add(nameStack);
             layout.Children.Add(breedStack);
             layout.Children.Add(weightStack);
