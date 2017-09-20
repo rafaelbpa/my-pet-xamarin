@@ -12,7 +12,7 @@ namespace MyPet.Views.Pages
     {
         ActivityIndicator loading;
 
-		public ListPage()
+	public ListPage()
         {
             Title = "My Pets";
             BackgroundColor = Color.LightGray;
@@ -26,7 +26,7 @@ namespace MyPet.Views.Pages
             ScrollView scroll = new ScrollView();
             StackLayout listPetsLayout = new StackLayout();
 
-			FillPets(listPetsLayout);
+	    FillPets(listPetsLayout);
 
             listPetsLayout.Children.Add(loading);
             scroll.Content = listPetsLayout;
@@ -36,14 +36,14 @@ namespace MyPet.Views.Pages
         protected async void FillPets(StackLayout listPetsLayout)
         {
             PetServices service = new PetServices();
-			PetBoxView petBoxView = new PetBoxView();
+	    PetBoxView petBoxView = new PetBoxView();
 
             ObservableCollection<pet> pets = await service.GetPetsAsync();
 
             foreach (pet mypet in pets)
-			{
-				listPetsLayout.Children.Add(petBoxView.createPetBoxLayout(mypet));
-			}
+	    {
+		listPetsLayout.Children.Add(petBoxView.createPetBoxLayout(mypet));
+	    }
 
             loading.IsRunning = false;
             loading.IsVisible = false;
