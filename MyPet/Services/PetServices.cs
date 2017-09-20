@@ -11,18 +11,17 @@ using Newtonsoft.Json;
 namespace MyPet.Services
 {
     public class PetServices
-	{
-		AzureDataServices api;
+    {
+    	AzureDataServices api;
         public IMobileServiceTable<pet> petsTable;
 
-		public async Task<ObservableCollection<pet>> GetPetsAsync()
-		{
-			api = new AzureDataServices();
+	public async Task<ObservableCollection<pet>> GetPetsAsync()
+	{
+	    api = new AzureDataServices();
             petsTable = api.MobileService.GetTable<pet>();
-            IEnumerable<pet> pets = await petsTable.ToEnumerableAsync();
+	    IEnumerable<pet> pets = await petsTable.ToEnumerableAsync();
 
-			return new ObservableCollection<pet>(pets);
-		}
-
+	    return new ObservableCollection<pet>(pets);
 	}
+    }
 }
