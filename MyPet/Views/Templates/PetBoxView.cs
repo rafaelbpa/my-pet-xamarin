@@ -24,26 +24,25 @@ namespace MyPet.Views.Templates
             petName.FontAttributes = FontAttributes.Bold;
             petName.Margin = new Thickness(0, 10, 0, 10);
 
-			var cachedImage = new CachedImage()
-			{
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+	    var cachedImage = new CachedImage()
+	    {
+            	HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.Start,
-				CacheDuration = TimeSpan.FromDays(7),
-				DownsampleToViewSize = true,
-				RetryCount = 0,
-				RetryDelay = 250,
-				LoadingPlaceholder = "loading.png",
-				ErrorPlaceholder = "error.png",
+		CacheDuration = TimeSpan.FromDays(7),
+		DownsampleToViewSize = true,
+		RetryCount = 0,
+		RetryDelay = 250,
+		LoadingPlaceholder = "loading.png",
+		ErrorPlaceholder = "error.png",
                 Source = myPet.picture
-			};
+	    };
 
-			var tapGestureRecognizer = new TapGestureRecognizer();
+	    var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Command = new Command(() => Navigation.PushAsync(new DetailPage(myPet)));
             tapGestureRecognizer.Tapped += async (s, e) =>
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new DetailPage(myPet));
             };
-
 
             box.BackgroundColor = Color.White;
             box.Children.Add(cachedImage);
